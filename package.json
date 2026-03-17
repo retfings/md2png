@@ -1,7 +1,7 @@
 {
-  "name": "md2png-monorepo",
+  "name": "@retfings/md2png",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Markdown 转图片工具 - 支持批量生成和自动分页",
   "author": "retfings",
   "license": "MIT",

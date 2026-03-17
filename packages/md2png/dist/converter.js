@@ -32,34 +32,33 @@ export class MarkdownConverter {
      * 将 Markdown 转换为 HTML
      */
     markdownToHtml(markdown) {
-        // 简单的 Markdown 解析器
+        // 简单的 Markdown 解析器 - 支持中文
         let html = markdown
             // 转义 HTML 特殊字符
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
             // 代码块
-            .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre class="code-block" data-lang="$1"><code>$2</code></pre>')
+            .replace(/```(\w*)\n([\s\S]*?)```/gu, '<pre class="code-block" data-lang="$1"><code>$2</code></pre>')
             // 行内代码
-            .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
+            .replace(/`([^`]+)`/gu, '<code class="inline-code">$1</code>')
             // 标题
-            .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-            .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-            .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+            .replace(/^### (.*$)/gmu, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gmu, '<h2>$1</h2>')
+            .replace(/^# (.*$)/gmu, '<h1>$1</h1>')
             // 粗体和斜体
-            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+            .replace(/\*\*(.+?)\*\*/gu, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/gu, '<em>$1</em>')
             // 链接
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/gu, '<a href="$2">$1</a>')
             // 图片
-            .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />')
+            .replace(/!\[([^\]]*)\]\(([^)]+)\)/gu, '<img src="$2" alt="$1" />')
             // 引用
-            .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
+            .replace(/^> (.*$)/gmu, '<blockquote>$1</blockquote>')
             // 无序列表
-            .replace(/^\- (.*$)/gm, '<li>$1</li>')
-            .replace(/^\* (.*$)/gm, '<li>$1</li>')
+            .replace(/^[-*] (.*$)/gmu, '<li>$1</li>')
             // 有序列表
-            .replace(/^\d+\. (.*$)/gm, '<li>$1</li>')
+            .replace(/^\d+\. (.*$)/gmu, '<li>$1</li>')
             // 段落
             .replace(/\n\n/g, '</p><p>')
             // 换行

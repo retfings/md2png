@@ -1,6 +1,6 @@
 {
   "name": "@retfings/md2png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Markdown 转图片 CLI 工具 - 支持批量生成和自动分页",
   "author": "retfings",
   "license": "MIT",

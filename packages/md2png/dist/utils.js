@@ -65,7 +65,19 @@ export async function resolveInputFiles(input, options) {
     }
     // 如果提供了目录
     if (options.directory) {
-        const dirFiles = await glob(join(options.directory, '**/*.md'), { nodir: true });
+        // 将目录路径转换为绝对路径，确保 glob 能正确处理
+        const absoluteDir = resolve(options.directory);
+        // 检查目录是否存在
+        try {
+            await access(absoluteDir, constants.F_OK);
+        }
+        catch {
+            console.error(pc.red(`错误：目录不存在 - ${absoluteDir}`));
+            return files;
+        }
+        // Windows 上 glob 需要正斜杠路径
+        const pattern = absoluteDir.replace(/\\/g, '/') + '/**/*.md';
+        const dirFiles = await glob(pattern, { nodir: true });
         files.push(...dirFiles);
     }
     // 如果提供了具体文件

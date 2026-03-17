@@ -1,0 +1,27 @@
+{
+  "name": "md2png-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Markdown 转图片工具 - 支持批量生成和自动分页",
+  "author": "retfings",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev -w md2png",
+    "md2png": "npm run start -w md2png"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/retfings/md2png.git"
+  },
+  "bugs": {
+    "url": "https://github.com/retfings/md2png/issues"
+  },
+  "homepage": "https://github.com/retfings/md2png#readme"
+}

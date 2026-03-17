@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/package",
+  "width": 800,
+  "maxHeight": 2000,
+  "format": "png",
+  "outputDir": "./output",
+  "quality": 90,
+  "backgroundColor": "#ffffff",
+  "padding": 40,
+  "darkMode": false,
+  "showLineNumbers": true,
+  "fontSize": 14
+}

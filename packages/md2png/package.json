@@ -1,0 +1,56 @@
+{
+  "name": "@retfings/md2png",
+  "version": "1.0.0",
+  "description": "Markdown 转图片 CLI 工具 - 支持批量生成和自动分页",
+  "author": "retfings",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "md2png": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "build": "tsc",
+    "dev": "tsx watch src/cli.ts",
+    "test": "tsx tests/test.ts",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "markdown",
+    "image",
+    "converter",
+    "md2png",
+    "cli",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/retfings/md2png.git"
+  },
+  "bugs": {
+    "url": "https://github.com/retfings/md2png/issues"
+  },
+  "homepage": "https://github.com/retfings/md2png#readme",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "puppeteer": "^24.4.0",
+    "glob": "^11.0.1",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

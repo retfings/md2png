@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+*/node_modules/
+
+# Output directory
+output/
+*/output/
+test-output/
+
+# Test files
+test.md
+test-*.md
+docs/
+
+# Config files (keep the example)
+md2png.config.json
+*.config.json
+.md2pngrc.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# npm
+.npmrc
